@@ -72,7 +72,7 @@ set(
 add_library(
     lc3_replay
     STATIC
-    ${SRC_REPLAY}
+    ${SRC_FILES}
 )
 
 # Use target_sources when 3.23 is standard.
