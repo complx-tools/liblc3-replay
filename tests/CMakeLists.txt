@@ -17,6 +17,7 @@ add_executable(
 
 target_link_libraries(
     lc3_replay_test_suite
+    lc3_replay
     ${LIBLC3_LIBRARY}
     ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 )
