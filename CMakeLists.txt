@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 # Ignore warnings about rpath behavior on OS X
 cmake_policy(SET CMP0042 NEW)
-project(liblc3_replay LANGUAGES CXX VERSION 4.20.0)
+project(liblc3-replay LANGUAGES CXX VERSION 4.20.0)
 include(GNUInstallDirs)
 
 # Add code coverage stuff.
@@ -65,8 +65,8 @@ set(
 
 set(
     HEADER_FILES
-    include/lc3_replay.hpp
-    include/BinaryStreamReader.hpp
+    include/lc3_replay/lc3_replay.hpp
+    include/lc3_replay/BinaryStreamReader.hpp
 )
     
 add_library(
