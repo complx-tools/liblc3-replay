@@ -1,3 +1,6 @@
+find_package(Boost COMPONENTS serialization iostreams REQUIRED QUIET)
+include_directories(${Boost_INCLUDE_DIRS})
+
 @PACKAGE_INIT@
 
 set(LIBLC3_REPLAY_VERSION_MAJOR "@liblc3_replay_VERSION_MAJOR@")
@@ -11,6 +14,3 @@ include("${CMAKE_CURRENT_LIST_DIR}/liblc3_replay.cmake")
 set(LIBLC3_REPLAY_LIBRARY liblc3_replay::lc3_replay)
 set(LIBLC3_REPLAY_LIBRARIES ${LIBLC3_REPLAY_LIBRARY})
 set(LIBLC3_REPLAY_FOUND ${liblc3_replay_FOUND})
-
-find_package(Boost COMPONENTS serialization iostreams REQUIRED QUIET)
-include_directories(${Boost_INCLUDE_DIRS})
