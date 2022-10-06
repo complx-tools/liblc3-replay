@@ -365,7 +365,7 @@ void lc3_setup_replay(lc3_state& state, const std::string& filename, std::istrea
     if (get_crc(decoded.data() + size_header, decoded.size() - size_header) != crc)
         throw "Failed to parse replay string. Internal crc doesn't match.";
 
-    if (replay_filename != filename)
+    if (replay_filename.substr(replay_filename.find_last_of("/\\") + 1) != filename.substr(filename.find_last_of("/\\") + 1))
         throw "Replay string is for file: " + replay_filename + " file given does not match... Received file: " + filename;
 
     std::string data_payload(decoded.begin() + size_header, decoded.end());
