@@ -8,6 +8,7 @@
 #include <boost/iostreams/filter/zlib.hpp>
 #include <boost/crc.hpp>
 #include <algorithm>
+#include <filesystem>
 #include <sstream>
 #include <iomanip>
 #include "lc3_replay.hpp"
@@ -365,8 +366,9 @@ void lc3_setup_replay(lc3_state& state, const std::string& filename, std::istrea
     if (get_crc(decoded.data() + size_header, decoded.size() - size_header) != crc)
         throw "Failed to parse replay string. Internal crc doesn't match.";
 
-    if (replay_filename != filename)
-        throw "Replay string is for file: " + replay_filename + " file given does not match... Received file: " + filename;
+    std::string rel_filename = std::filesystem::path(filename).filename();
+    if (replay_filename != rel_filename)
+        throw "Replay string is for file: " + replay_filename + " file given does not match... Received file: " + rel_filename;
 
     std::string data_payload(decoded.begin() + size_header, decoded.end());
     if (compression_enabled)

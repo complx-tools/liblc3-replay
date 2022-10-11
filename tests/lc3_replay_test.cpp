@@ -102,7 +102,7 @@ BOOST_FIXTURE_TEST_CASE(ReplayTest, LC3ReplayTest)
 
     std::stringstream file(asm_file);
     std::stringstream input;
-    lc3_setup_replay(state, "this_is_a_test.asm", file, REPLAY_STRING, input);
+    lc3_setup_replay(state, "foo/bar/this_is_a_test.asm", file, REPLAY_STRING, input);
 
     BOOST_CHECK_EQUAL(state.regs[4], 0x4001);
 

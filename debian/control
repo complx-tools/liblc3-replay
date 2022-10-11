@@ -12,5 +12,5 @@ Section: libs
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, libboost-serialization-dev, libboost-iostreams-dev
 Description: Replay string operations for liblc3. Replay strings are given from failures in pylc3.autograder. These strings copy the environment from a pylc3 test to replay the test in a more controlled environment for debugging.
